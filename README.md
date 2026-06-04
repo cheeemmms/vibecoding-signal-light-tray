@@ -4,7 +4,7 @@
 
 [![Python](https://img.shields.io/badge/python-3.11+-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-lightgrey?logo=windows)](https://www.microsoft.com/windows)
-[![Status](https://img.shields.io/badge/status-alpha-orange)](https://github.com/starlight36/vibecoding-signal-light-tray)
+[![Status](https://img.shields.io/badge/status-alpha-orange)](https://github.com/cheeemmms/vibecoding-signal-light-tray)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ---
@@ -68,7 +68,7 @@ python -m signal_light_tray
 
 ```
 请帮我安装并配置 Signal Light Tray：
-https://github.com/starlight36/vibecoding-signal-light-tray
+https://github.com/cheeemmms/vibecoding-signal-light-tray
 
 按照仓库里的 AI_AGENT_SETUP.md 一步步操作，每步完成后验证结果。
 ```
@@ -94,6 +94,8 @@ Agent 会自动：
 | 🔌 一键安装 Hook | 托盘右键 → 安装 Hook，无需手动编辑 JSON |
 | 📦 单文件 EXE | `dist/signal-light-tray.exe`，给不用 Python 的朋友也能跑 |
 | 🪟 开机自启 | 放入启动文件夹，开机自动运行 |
+
+> ✈️ **作者的小巧思**：提示音（`attention.wav`）来自空客 A320 自动驾驶断开提示音，警告音（`warning.wav`）来自客舱广播提示音。当 Agent 需要你接管时，用飞机自动驾驶断开的音效来提醒——"AI 把驾驶杆交还给你了"，是不是很应景？
 
 ---
 
@@ -161,7 +163,7 @@ python -m signal_light_tray
 <details>
 <summary><b>方式二：直接运行 EXE（无需 Python）</b></summary>
 
-去 [Releases](https://github.com/starlight36/vibecoding-signal-light-tray/releases) 下载 `signal-light-tray.exe`，双击运行。
+去 [Releases](https://github.com/cheeemmms/vibecoding-signal-light-tray/releases) 下载 `signal-light-tray.exe`，双击运行。
 
 > EXE 由 PyInstaller 打包，约 15MB，内置所有依赖和图标音效资源。
 
