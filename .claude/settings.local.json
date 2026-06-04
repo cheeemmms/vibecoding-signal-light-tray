@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m signal_light_tray)"
+    ]
+  }
+}

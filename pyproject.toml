@@ -1,0 +1,33 @@
+[project]
+name = "signal-light-tray"
+version = "0.1.0"
+description = "Windows 托盘虚拟红绿灯——为 Claude Code 等 AI 编程 Agent 提供实体状态指示。"
+requires-python = ">=3.11"
+keywords = [
+    "ai-agent",
+    "claude-code",
+    "status-light",
+    "tray",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Win32 (MS Windows)",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development",
+]
+dependencies = [
+    "pystray>=0.19.0",
+    "Pillow>=10.0.0",
+]
+
+[project.scripts]
+signal-light-tray = "signal_light_tray.app:main"
+
+[project.urls]
+Homepage = "https://github.com/cheeemmms/vibecoding-signal-light-tray"
+Repository = "https://github.com/cheeemmms/vibecoding-signal-light-tray"
+
+[tool.setuptools.packages.find]
+include = ["signal_light_tray*"]
