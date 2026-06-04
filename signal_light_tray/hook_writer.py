@@ -47,6 +47,20 @@ def apply_session_signal(session_key: str, signal_name: str) -> str:
             if current_signal not in TURN_END_KEEP_SIGNALS:
                 sessions.pop(session_key, None)
         else:
+            # attention/done 不应：
+            # 1. 覆盖正在工作中的信号（避免 Notification 导致红黄跳动）
+            # 2. 在 session 不存在时新建条目（避免 turn_end 清除后又被 Notification 复活为黄灯）
+            if signal_name in ("attention", "done"):
+                current = sessions.get(session_key)
+                if isinstance(current, dict) and current.get("signal") in WORKING_SIGNALS:
+                    aggregate = _aggregate_sessions(sessions)
+                    _write_session_state(state)
+                    return aggregate
+                if current is None:
+                    # session 不存在时不创建，直接返回当前聚合结果
+                    aggregate = _aggregate_sessions(sessions)
+                    _write_session_state(state)
+                    return aggregate
             sessions[session_key] = {
                 "signal": signal_name,
                 "updated_at": now,
@@ -122,8 +136,8 @@ def _aggregate_sessions(sessions: dict[str, Any]) -> str:
         return "blocked"
     if any(s == "permission" for s in signals):
         return "permission"
-    if any(s in YELLOW_SIGNALS for s in signals):
-        return "attention"
     if any(s in WORKING_SIGNALS for s in signals):
         return "working"
+    if any(s in YELLOW_SIGNALS for s in signals):
+        return "attention"
     return "idle"

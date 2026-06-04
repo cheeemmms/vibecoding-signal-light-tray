@@ -60,10 +60,10 @@ def aggregate_sessions(sessions: dict[str, Any]) -> str:
         return "blocked"
     if any(s == "permission" for s in signals):
         return "permission"
-    if any(s in YELLOW_SIGNALS for s in signals):
-        return "attention"
     if any(s in WORKING_SIGNALS for s in signals):
         return "working"
+    if any(s in YELLOW_SIGNALS for s in signals):
+        return "attention"
     return "idle"
 
 
